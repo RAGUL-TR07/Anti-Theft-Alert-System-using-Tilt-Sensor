@@ -1,21 +1,28 @@
 # Anti-Theft-Alert-System-using-Tilt-Sensor
 
-## Aim: To measure the tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD.
+## Aim:
+To measure the tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD.
 
 ## Hardware / Software Tools required:
+<p align="left">
 	PC/ Laptop with Internet connection
   Tinker CAD tool (Online)
 	Arduino UNO Board/ESP-32
 	Tilt sensor(SW200D)
+ </p>
 
 ## Circuit Diagram:
- 
+ <img width="1357" height="496" alt="Screenshot 2025-09-06 091906" src="https://github.com/user-attachments/assets/9f1f4ef7-ca8a-4394-9197-89e5aae930f6" />
+<img width="1083" height="804" alt="Screenshot 2025-09-06 091916" src="https://github.com/user-attachments/assets/dac5613d-dd02-4235-ad1f-3b176c347882" />
+
 ## Theory :
- The Arduino Uno is powered by the ATmega328P, an 8-bit microcontroller that runs at 16 MHz. It has 32 KB of flash memory, 2 KB of SRAM, and 1 KB of EEPROM. The board has 14 digital I/O pins (of which 6 can be used as PWM outputs) and 6 analog input pins. These pins allow the board to interface with various sensors, actuators, and other devices.The Arduino Uno can be powered via a USB connection or an external power supply. The board has a built-in voltage regulator to manage power from 7 to 12 volts.
-The board is programmable using the Arduino IDE (Integrated Development Environment), which supports a simplified version of C/C++. The code, known as a "sketch," is uploaded to the board via a USB connection. The Uno has a USB-B port, which is used for communication with a computer. The USB connection also powers the board when connected. The board includes a reset button that restarts the microcontroller, useful during programming and troubleshooting. The In-Circuit Serial Programming (ICSP) header allows for low-level programming of the microcontroller or firmware updates. The Uno has a built-in LED on pin 13, commonly used for simple tests and debugging.
+
+ 	The Arduino Uno is powered by the ATmega328P, an 8-bit microcontroller that runs at 16 MHz. It has 32 KB of flash memory, 2 KB of SRAM, and 1 KB of EEPROM. The board has 14 digital I/O pins (of which 6 can be used as PWM outputs) and 6 analog input pins. These pins allow the board to interface with various sensors, actuators, and other devices.The Arduino Uno can be powered via a USB connection or an external power supply. The board has a built-in voltage regulator to manage power from 7 to 12 volts.
+
 
 
 ## Procedure:
+```
 
 Step 1: Set Up the Tinkercad Environment
 •	Log in to Tinkercad: Open Tinkercad in your web browser and log in to your account.
@@ -44,17 +51,52 @@ Step 6: Troubleshoot and Refine
 Step 7: Save Your Work
 •	Stop Simulation: Click "Stop Simulation" to end the simulation.
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
-
+```
 ## Code:
+```
+// C++ code
+//
+int sensorvalue = 0;
 
+void setup()
+{
+  pinMode(8, INPUT);
+  Serial.begin(9600);
+  pinMode(3, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+}
 
+void loop()
+{
+  sensorvalue = digitalRead(8);
+  Serial.println(sensorvalue);
+  if (sensorvalue == 1) {
+    digitalWrite(3, HIGH);
+    digitalWrite(7, HIGH);
+    digitalWrite(6, LOW);
+  } else {
+    digitalWrite(3, LOW);
+    digitalWrite(7, LOW);
+  }
+  if (sensorvalue == 0) {
+    digitalWrite(6, HIGH);
+  }
+  delay(10); // Delay a little bit to improve simulation performance
+}
+
+```
 
 ## Output:
+
+
+https://github.com/user-attachments/assets/16436dc3-5463-4339-99a8-902a98188d6a
+
 
  
 
 
 ## Result:
 
-Result: Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
+Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
 
